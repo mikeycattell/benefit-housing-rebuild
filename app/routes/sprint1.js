@@ -333,7 +333,7 @@ router.post('/partner-employment', function(req, res) {
 // Review
   router.get('/review', function(req, res) {
     var details = req.cookies.details_more;
-    var fraud_types = req.cookies.fraud_urls;
+    var details_get_options = req.cookies.details_get_options;
     var review = {'name': details.first_name + ' ' + details.last_name, titles: req.cookies.details_get_options_titles};
     var additional = req.cookies.additional;
 
