@@ -331,18 +331,18 @@ router.post('/partner-employment', function(req, res) {
 
 
 // Review
-  router.get('/review', function(req, res) {
-    var details = req.cookies.details_more;
-    var details_get_options = req.cookies.details_get_options;
-    var review = {'name': details.first_name + ' ' + details.last_name, titles: req.cookies.details_get_options_titles};
-    var additional = req.cookies.additional;
+//  router.get('/review', function(req, res) {
+//    var details = req.cookies.details_more;
+//    var get_routes = req.cookies.details_get_options;
+//    var review = {'name': details.first_name + ' ' + details.last_name, titles: req.cookies.details_get_options_titles};
+//    var additional = req.cookies.additional;
 
-    res.render('sprint1/review', {review: review, additional: additional});
-  });
+//    res.render('sprint1/review', {review: review, additional: additional});
+//  });
 
-  router.post('/review', function(req, res) {
-    res.redirect('complete');
-  });
+//  router.post('/review', function(req, res) {
+//    res.redirect('complete');
+//  });
 // end Review
 
 
@@ -351,6 +351,7 @@ router.post('/partner-employment', function(req, res) {
     res.render('sprint1/complete');
   });
 // end Review
+
 
 
 // Exit Page
