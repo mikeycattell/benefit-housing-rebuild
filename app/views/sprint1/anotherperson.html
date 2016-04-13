@@ -7,13 +7,12 @@
 {% block main %}
 <div class="grid-row">
   <div class="column-two-thirds">
-    <h1 class="heading-xlarge">Council Property</h1>
+    <h1 class="heading-xlarge">Would you like to tell us about another person not yet mentioned in relation to this fraud?</h1>
 
     <form method="post" action="abroad">
-      <h2 class="heading-small">Would you like to tell us about another person not yet mentioned in relation to this fraud?</h2>
 
-      <fieldset class="inline">
-        <div class="form-group">
+      <div class="form-group" id="anotherperson-form">
+        <fieldset class="inline">
 
           <label class="block-label" data-target="who_hidden" for="who_yes">
             <input id="who_yes" type="radio" name="lodgers_select" value="Yes" aria-controls="who_hidden" aria-expanded="false" {{session.lodger_yes}}>
@@ -26,6 +25,7 @@
           </label>
 
           <div class="panel panel-border-narrow js-hidden" id="who_hidden" style="display:{{session.who_hidden_display}};">
+
             <h2 class="heading-small">Who are they subletting to?</h2>
             <div class="form-group">
               <fieldset class="{{validate.first_name}}">
@@ -34,10 +34,9 @@
                   <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
                 </div>
               </fieldset>
-            </div>
-            <div class="form-group">
+
               <fieldset class="{{validate.last_name}}">
-                <div id="LastName-form" class="form-group">
+                <div id="lastName-form" class="form-group">
                   <label class="form-label-bold" for="last_name">Last name</label>
                   <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
                 </div>
@@ -62,31 +61,30 @@
                   Dont know
                 </label>
               </fieldset>
-            </div>
 
-
-            <div class="panel panel-border-narrow js-hidden" id="othernames" style="display:{{session.othernames_display}};">
-              <div class="form-group">
-                <fieldset class="{{validate.first_name}}">
-                  <div id="firstName-form" class="form-group">
-                    <label class="form-label-bold" for="first_name">First name</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                <div class="panel panel-border-narrow js-hidden" id="othernames" style="display:{{session.othernames_display}};">
+                  <div class="form-group">
+                    <fieldset class="{{validate.first_name}}">
+                      <div id="firstName-form" class="form-group">
+                        <label class="form-label-bold" for="first_name">First name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                      </div>
+                    </fieldset>
                   </div>
-                </fieldset>
-              </div>
-              <div class="form-group">
-                <fieldset class="{{validate.last_name}}">
-                  <div id="LastName-form" class="form-group">
-                    <label class="form-label-bold" for="last_name">Last name</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                  <div class="form-group">
+                    <fieldset class="{{validate.last_name}}">
+                      <div id="LastName-form" class="form-group">
+                        <label class="form-label-bold" for="last_name">Last name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                      </div>
+                    </fieldset>
                   </div>
-                </fieldset>
+                </div>
               </div>
-            </div>
 
             <h2 class="heading-small">Sex</h2>
             <div class="form-group">
-              <fieldset class="{{validate.first_name}}">
+              <fieldset>
                 <label class="block-label" for="otherperson_sex_yes">
                   <input id="otherperson_sex_male" type="radio" name="otherperson_sex_selects" value="male" {{session.otherperson_sex_male}}>
                   Male
@@ -132,9 +130,10 @@
 
             </div>
 
-            <legend class="form-label-bold" for="dob_approximate_age">
-              Do you know their date of birth?
-            </legend>
+            <div class="form-group">
+              <legend class="form-label-bold" for="dob_approximate_age">
+                Do you know their date of birth?
+              </legend>
 
             <div class="form-group" id="dob_approximate_age">
               <fieldset class="inline">
@@ -178,7 +177,10 @@
                   <input class="form-control" name="age" type="text" id="age" value="{{session.age}}">
                 </div>
               </fieldset>
+            </div>
+          </div>
 
+            <div class="form-group">
               <fieldset>
 
                 <div id="firstName-form" class="form-group">
@@ -189,45 +191,150 @@
                 </div>
 
               </fieldset>
+            </div>
 
-              <fieldset>
+              <!-- start of address-->
+              <h2 class="heading-small">Do you know the full address of this person?</h2>
+              <div class="form-group">
+                <fieldset class="inline">
+                  <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
+                    <input id="dob_yes" type="radio" name="addressperson_hidden_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+                    Yes
+                  </label>
 
-                <legend class="form-label-bold" for="other_name_form">
-                  Address
+                  <label class="block-label {{session.addressperson_hidden_no}}" for="dob_no">
+                    <input id="dob_no" type="radio" name="addressperson_hidden_select" value="No" {{session.dob_no}}>
+                    No
+                  </label>
 
-                  <p class="form-hint">
-                    Include at least street and town
-                  </p>
-                </legend>
+                  <div class="panel panel-border-narrow js-hidden {{validate.addressperson_hidden}}" id="addressperson_hidden" style="display:{{session.addressperson_hidden}}">
 
+                    <legend class="form-label-bold" for="addressperson_hidden_form">
+                      Address
+
+                      <p class="form-hint">
+                        Include at least street and town
+                      </p>
+                    </legend>
+
+                    <div class="form-group">
+                      <fieldset>
+                        <div id="firstName-form" class="form-group form-group-compound">
+                          <label class="form-label" for="building">Building name or number</label>
+                          <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                        </div>
+
+                        <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                          <label class="form-label" for="street">Street</label>
+                          <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                        </div>
+
+                        <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                          <label class="form-label" for="town">Town or city</label>
+                          <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                        </div>
+
+                        <div id="lastName-form" class="form-group form-group-compound">
+                          <label class="form-label" for="county">County</label>
+                          <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                        </div>
+
+                        <div id="lastName-form" class="form-group form-group-compound">
+                          <label class="form-label" for="postcode">Postcode</label>
+                          <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                <fieldset/>
+              </div>
+
+              <!-- end of address -->
+              <div class="form-group">
                 <fieldset>
-                  <div id="firstName-form" class="form-group form-group-compound">
-                    <label class="form-label" for="building">Building name or number</label>
-                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
-                  </div>
-
-                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
-                    <label class="form-label" for="street">Street</label>
-                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
-                  </div>
-
-                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
-                    <label class="form-label" for="town">Town or city</label>
-                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
-                  </div>
-
-                  <div id="lastName-form" class="form-group form-group-compound">
-                    <label class="form-label" for="county">County</label>
-                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
-                  </div>
-
-                  <div id="lastName-form" class="form-group form-group-compound">
-                    <label class="form-label" for="postcode">Postcode</label>
-                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  <div id="firstName-form" class="form-group {{validate.phone}}">
+                    <label class="form-label-bold" for="phone">Telephone number</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{session.phone}}">
                   </div>
                 </fieldset>
+              </div>
 
-              </fieldset>
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group {{validate.looklike}}">
+                    <label class="form-label-bold" for="looklike">What does the person look like?</label>
+                    <input type="text" class="form-control" id="looklike" name="looklike" value="{{session.looklike}}">
+                  </div>
+                </fieldset>
+              </div>
+              
+              <h2 class="heading-small">Their build?</h2>
+              <div class="form-group">
+                <fieldset>
+                  <label class="block-label" for="otherperson_size_small">
+                    <input id="otherperson_size_small" type="radio" name="otherperson_size_selects" value="size_small" {{session.size_large}}>
+                    Small
+                  </label>
+
+                  <label class="block-label" for="otherperson_size_medium">
+                    <input id="otherperson_size_medium" type="radio" name="otherperson_size_selects" value="size_medium" {{session.size_large}}>
+                    Medium
+                  </label>
+
+                  <label class="block-label" for="otherperson_size_large">
+                    <input id="otherperson_size_large" type="radio" name="otherperson_size_selects" value="size_large" {{session.size_large}}>
+                    Large
+                  </label>
+                </fieldset>
+              </div>
+
+              <div class="form-group">
+                <fieldset>
+
+                  <div id="firstName-form" class="form-group">
+                    <label class="form-label-bold" for="how_many_hours">
+                      What is their height?
+                    </label>
+                    <p class="form-hint">
+                      Please indicate whether in feet and inches or centimetres and metres
+                    </p>
+                    <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+                  </div>
+
+                </fieldset>
+              </div>
+
+              <div class="form-group">
+                <fieldset>
+
+                  <div id="firstName-form" class="form-group">
+                    <label class="form-label-bold" for="how_many_hours">
+                      Their hair colour
+                    </label>
+                    <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+                  </div>
+
+                </fieldset>
+              </div>
+
+              <div class="form-group">
+                <fieldset>
+
+                  <div id="firstName-form" class="form-group">
+                    <label class="form-label-bold" for="how_many_hours">
+                      Any other distinguishing features
+                    </label>
+                    <p class="form-hint">
+                      For example glasses, visable piercing or tattoos.<br>
+                      Maximum 250 characters allowed
+                    </p>
+                    <textarea type="text" class="form-control" id="how_many_hours" name="how_many_hours" rows="4" value="{{session.how_many_hours}}"></textarea>
+                  </div>
+
+                </fieldset>
+              </div>
+
+            </div>
             </div>
           </div>
         </div>

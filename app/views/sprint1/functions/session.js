@@ -9,6 +9,41 @@ var sessions = {
       res.cookie('subletting', req.body);
     }
 
+    if ( req.path === '/details' ) {
+      var fraud_urls = {};
+      var fraud_titles = [];
+
+      for ( var selection in req.body ) {
+        fraud_urls[selection] = req.body[selection];
+        if ( selection === 'council' ) {
+          details_get_options.push({'title':'is claiming council'});
+        }
+
+        if ( selection === 'private' ) {
+          details_get_options.push({'title':'is claiming private'});
+        }
+
+        if ( selection === 'contrived' ) {
+          details_get_options.push({'title':'is claiming contrived'});
+        }
+
+        if ( selection === 'residence' ) {
+          details_get_options.push({'title':'is claiming residence'});
+        }
+
+        if ( selection === 'dependants' ) {
+          fraud_titles.push({'title':'is claiming dependants'});
+        }
+
+        if ( selection === 'landlord' ) {
+          fraud_titles.push({'title':"is claiming landlord"});
+        }
+
+      }
+      res.cookie('fraud_urls', fraud_urls);
+      res.cookie('fraud_titles', fraud_titles);
+    }
+
     // Details More
     if ( req.path === '/details-more' ) {
       if ( req.body.other_name_select === 'Yes' ) {

@@ -5,8 +5,8 @@ var functions = {
       build_radio(req, 'Council Property', 'council', 'council'),
       build_radio(req, 'Private property', 'private', 'private'),
       build_radio(req, 'Contrived tenancy', 'contrived', 'contrived'),
-      build_radio(req, 'Non-residence', 'residence', 'residence'),
-      build_radio(req, 'Undeclared non-dependants', 'dependants', 'dependants'),
+      build_radio(req, 'Non-residence', 'residence', 'non-residence'),
+      build_radio(req, 'Undeclared non-dependants', 'dependants', 'non-dependants'),
       build_radio(req, 'Landlord fraud', 'landlord', 'landlord')
     ];
 

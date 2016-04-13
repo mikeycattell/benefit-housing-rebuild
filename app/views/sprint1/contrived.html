@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Contrived tenancy</h1>
+
+      <form method="post" class="council">
+        <h2 class="heading-small">Contrived or false tenancy could be when a parent or close relative is the landlord or when the landlord does not exist</h2>
+        <h2 class="heading-small">Please provide details of the contrived tenancy</h2>
+
+
+        <h2 class="heading-small">Does a relative or partner recieve a share of the rent claimed?</h2>
+        <div class="form-group">
+          <fieldset class="{{validate.first_name}}">
+            <label class="block-label" data-target="othernames" for="othernames_yes">
+              <input id="othernames_yes" type="radio" name="othernames_selects" value="Yes" {{session.another_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" for="another_no">
+              <input id="othernames_no" type="radio" name="othernames_selects" value="No" {{session.othernames_no}}>
+              No
+            </label>
+
+            <label class="block-label" for="another_dontknow">
+              <input id="othernames_dontknow" type="radio" name="othernames_selects" value="dontknow" {{session.othernames_dontknow}}>
+              Dont know
+            </label>
+          </fieldset>
+        </div>
+
+        <!-- start of address-->
+        <h2 class="heading-small">Do you know the relative or partner's address?</h2>
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
+              <input id="dob_yes" type="radio" name="addressperson_hidden_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.addressperson_hidden_no}}" for="dob_no">
+              <input id="dob_no" type="radio" name="addressperson_hidden_select" value="No" {{session.dob_no}}>
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.addressperson_hidden}}" id="addressperson_hidden" style="display:{{session.addressperson_hidden}}">
+
+              <legend class="form-label-bold" for="addressperson_hidden_form">
+                Address
+
+                <p class="form-hint">
+                  Include at least street and town
+                </p>
+              </legend>
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Building name or number</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                    <label class="form-label" for="street">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                    <label class="form-label" for="town">Town or city</label>
+                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="county">County</label>
+                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          <fieldset/>
+        </div>
+
+        <!-- end of address -->
+
+        <a id="submit" type="submit" class="button" value="Continue" href="additional-information">Continue</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

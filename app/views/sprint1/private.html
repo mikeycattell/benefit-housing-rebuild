@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Private Property</h1>
+
+      <form method="post" class="council">
+        <h2 class="heading-small">Please give details of the private property's rent?</h2>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                What is the amount of rent being claimed?
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                What is the actual rent paid?
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <h2 class="heading-small">Is more rent being claimed than the actual rent paid?</h2>
+        <div class="form-group">
+          <fieldset class="{{validate.first_name}}">
+            <label class="block-label" data-target="othernames" for="othernames_yes">
+              <input id="othernames_yes" type="radio" name="othernames_selects" value="Yes" {{session.another_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" for="another_no">
+              <input id="othernames_no" type="radio" name="othernames_selects" value="No" {{session.othernames_no}}>
+              No
+            </label>
+
+            <label class="block-label" for="another_dontknow">
+              <input id="othernames_dontknow" type="radio" name="othernames_selects" value="dontknow" {{session.othernames_dontknow}}>
+              Dont know
+            </label>
+          </fieldset>
+        </div>
+
+        <a id="submit" type="submit" class="button" value="Continue" href="additional-information">Continue</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}
