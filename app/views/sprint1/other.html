@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {% if session.single_fraud %}
+        <h1 class="heading-xlarge">What do you want to report?</h1>
+      {% else %}
+        <h1 class="heading-xlarge">What else do you want to report?</h1>
+      {% endif %}
+
+      <form method="post" action="other">
+        <div class="form-group {{validate.other}}">
+          <label class="form-label-bold" for="other">
+            Give as much information as you can about what the person is doing
+          </label>
+
+          <p class="form-hint">Maximum length 1500 characters.</p>
+
+          <textarea class="form-control form-control-3-4" rows="5" id="other" name="other">{{session.other}}</textarea>
+        </div>
+
+        <input type="submit" class="button" value="Continue">
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<legend class="form-label-bold" for="dob_approximate_age">
+  Do you know their date of birth?
+</legend>
+
+<div class="form-group" id="dob_approximate_age">
+  <fieldset class="inline">
+    <label class="block-label" data-target="dob_hidden" for="dob_yes">
+      <input id="dob_yes" type="radio" name="dob_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label {{session.dob_no}}" data-target="approximate_age_hidden" for="dob_no">
+      <input id="dob_no" type="radio" name="dob_select" value="No" aria-expanded="false" {{session.dob_no}}>
+      No
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden {{validate.dob}}" id="dob_hidden" style="display:{{session.show_dob}}">
+      <div class="form-group">
+        <fieldset>
+          <div class="form-date">
+            <p class="form-hint">For example, 31 03 1980</p>
+
+            <div class="form-group form-group-day">
+              <label for="dob_day">Day</label>
+              <input class="form-control no-error" id="dob_day" name="dob_day" value="{{session.dob_day}}" type="text" maxlength="2">
+            </div>
+
+            <div class="form-group form-group-month">
+              <label for="dob_month">Month</label>
+              <input class="form-control no-error" id="dob_month" name="dob_month" value="{{session.dob_month}}" type="text" maxlength="2">
+            </div>
+
+            <div class="form-group form-group-year">
+              <label for="dob-year">Year</label>
+              <input class="form-control no-error" id="dob_year" name="dob_year" value="{{session.dob_year}}" type="text" maxlength="4">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="panel panel-border-narrow js-hidden {{validate.age}}" id="approximate_age_hidden" aria-hidden="true" style="display:{{session.show_age}}">
+      <label class="form-label-bold" for="age">Approximate age</label>
+      <input class="form-control" name="age" type="text" id="age" value="{{session.age}}">
+    </div>
+  </fieldset>
+</div>

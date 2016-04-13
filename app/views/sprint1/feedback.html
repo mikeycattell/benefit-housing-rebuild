@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <h1 class="heading-xlarge">Feedback</h1>
+
+    <form method="post" action="feedback" id="form__details">
+      <div class="form-group form-group" id="everything-form">
+        <fieldset class="inline">
+          <legend class="form-label-bold" for="everything-form">
+            Do you feel you were able to tell us everything you needed to today?
+          </legend>
+
+          <label class="block-label" for="everything-yes">
+            <input id="everything-yes" type="radio" name="everything" value="yes">
+            Yes
+          </label>
+
+          <label class="block-label" for="everything-no">
+            <input id="everything-no" type="radio" name="everything" value="no">
+            No
+          </label>
+
+        </fieldset>
+      </div>
+
+      <div class="form-group form-group" id="experience-form">
+        <fieldset class="inline">
+          <legend class="form-label-bold" for="experience-form">
+            Overall, how would you rate your experience in completing this form?
+          </legend>
+
+          <label class="block-label" for="experience-very-easy">
+            <input id="experience-very-easy" type="radio" name="experience" value="very-easy">
+            Very easy
+          </label>
+
+          <label class="block-label" for="experience-easy">
+            <input id="experience-easy" type="radio" name="experience" value="easy">
+            Easy
+          </label>
+
+          <label class="block-label" for="experience-difficult">
+            <input id="experience-difficult" type="radio" name="experience" value="difficult">
+            Difficult
+          </label>
+
+          <label class="block-label" for="experience-very-difficult">
+            <input id="experience-very-difficult" type="radio" name="experience" value="very-difficult">
+            Very Difficult
+          </label>
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label-bold" for="suggestion">Do you have any suggestions for how we can improve this service?</label>
+        <textarea class="form-control form-control-3-4" rows="5" id="suggestion" name="suggestion"></textarea>
+      </div>
+
+      <input id="submit" type="submit" class="button" value="Send feedback">
+    </form>
+  </div>
+{% endblock %}

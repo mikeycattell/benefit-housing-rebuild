@@ -1,0 +1,36 @@
+<legend class="form-label-bold" for="other_name_form">
+  Address
+
+  <p class="form-hint">
+    Include at least street and town
+  </p>
+</legend>
+
+<div class="form-group">
+  <fieldset>
+    <div id="firstName-form" class="form-group form-group-compound">
+      <label class="form-label" for="building">Building name or number</label>
+      <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+    </div>
+
+    <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+      <label class="form-label" for="street">Street</label>
+      <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+    </div>
+
+    <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+      <label class="form-label" for="town">Town or city</label>
+      <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+    </div>
+
+    <div id="lastName-form" class="form-group form-group-compound">
+      <label class="form-label" for="county">County</label>
+      <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+    </div>
+
+    <div id="lastName-form" class="form-group form-group-compound">
+      <label class="form-label" for="postcode">Postcode</label>
+      <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+    </div>
+  </fieldset>
+</div>

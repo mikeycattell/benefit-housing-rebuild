@@ -1,0 +1,37 @@
+<div id="first_name-form" class="form-group {{validate.first_name}}">
+  <label class="form-label-bold" for="first_name">First name</label>
+  <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+</div>
+
+<div id="last_name-form" class="form-group {{validate.last_name}}">
+  <label class="form-label-bold" for="last_name">Last name</label>
+  <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.last_name}}">
+</div>
+
+<div class="form-group form-group" id="otherName-form">
+  <fieldset class="inline">
+    <legend class="form-label-bold" for="otherName-form">
+      Do you know them by another name?
+      <p class="form-hint">For example nickname, professional name or maiden name</p>
+    </legend>
+
+    <label class="block-label" for="other_name_yes" data-target="other_name_hidden">
+      <input id="other_name_yes" type="radio" name="other_name_select" value="Yes" {{session.other_name_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label" for="otherName-no">
+      <input id="otherName-no" type="radio" name="other_name_select" value="No" {{session.other_name_no}}>
+      No
+    </label>
+  </fieldset>
+
+  <div class="panel panel-border-narrow js-hidden {{validate.other_name}}" id="other_name_hidden" style="display:{{session.other_name_hidden}};">
+    <fieldset>
+      <div id="otherNameDetails-form" class="form-group">
+        <label class="form-label-bold" for="other_name">Name</label>
+        <input type="text" class="form-control" id="other_name" name="other_name" value="{{session.other_name}}">
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="pension_select" data-target="pension_hidden">
+      <input id="pension_select" name="pension_select" type="checkbox" value="checked" {{session.pension_select}}>
+      Pension
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="pension_hidden" style="display:{{session.pension_hidden}};">
+      <label class="form-label" for="pension">
+        Who is their pension with?
+      </label>
+      <input class="form-control" type="text" id="pension" name="pension" value="{{session.pension}}">
+    </div>
+  </div>
+</fieldset>

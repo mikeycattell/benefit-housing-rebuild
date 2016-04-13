@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+{% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-xlarge">Council Property</h1>
+
+    <form method="post" action="abroad">
+      <h2 class="heading-small">Would you like to tell us about another person not yet mentioned in relation to this fraud?</h2>
+
+      <fieldset class="inline">
+        <div class="form-group">
+
+          <label class="block-label" data-target="who_hidden" for="who_yes">
+            <input id="who_yes" type="radio" name="lodgers_select" value="Yes" aria-controls="who_hidden" aria-expanded="false" {{session.lodger_yes}}>
+            Yes
+          </label>
+
+          <label class="block-label" for="who_no">
+            <input id="who_no" type="radio" name="lodgers_select" value="No" {{session.lodger_no}}>
+            No
+          </label>
+
+          <div class="panel panel-border-narrow js-hidden" id="who_hidden" style="display:{{session.who_hidden_display}};">
+            <h2 class="heading-small">Who are they subletting to?</h2>
+            <div class="form-group">
+              <fieldset class="{{validate.first_name}}">
+                <div id="firstName-form" class="form-group">
+                  <label class="form-label-bold" for="first_name">First name</label>
+                  <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-group">
+              <fieldset class="{{validate.last_name}}">
+                <div id="LastName-form" class="form-group">
+                  <label class="form-label-bold" for="last_name">Last name</label>
+                  <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                </div>
+              </fieldset>
+            </div>
+
+            <h2 class="heading-small">Is the person known by any other names?</h2>
+            <div class="form-group">
+              <fieldset class="{{validate.first_name}}">
+                <label class="block-label" data-target="othernames" for="othernames_yes">
+                  <input id="othernames_yes" type="radio" name="othernames_selects" value="Yes" aria-controls="othernames" aria-expanded="false" {{session.another_yes}}>
+                  Yes
+                </label>
+
+                <label class="block-label" for="another_no">
+                  <input id="othernames_no" type="radio" name="othernames_selects" value="No" {{session.othernames_no}}>
+                  No
+                </label>
+
+                <label class="block-label" for="another_dontknow">
+                  <input id="othernames_dontknow" type="radio" name="othernames_selects" value="dontknow" {{session.othernames_dontknow}}>
+                  Dont know
+                </label>
+              </fieldset>
+            </div>
+
+
+            <div class="panel panel-border-narrow js-hidden" id="othernames" style="display:{{session.othernames_display}};">
+              <div class="form-group">
+                <fieldset class="{{validate.first_name}}">
+                  <div id="firstName-form" class="form-group">
+                    <label class="form-label-bold" for="first_name">First name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                  </div>
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset class="{{validate.last_name}}">
+                  <div id="LastName-form" class="form-group">
+                    <label class="form-label-bold" for="last_name">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <h2 class="heading-small">Sex</h2>
+            <div class="form-group">
+              <fieldset class="{{validate.first_name}}">
+                <label class="block-label" for="otherperson_sex_yes">
+                  <input id="otherperson_sex_male" type="radio" name="otherperson_sex_selects" value="male" {{session.otherperson_sex_male}}>
+                  Male
+                </label>
+
+                <label class="block-label" for="otherperson_sex_no">
+                  <input id="otherperson_sex_female" type="radio" name="otherperson_sex_selects" value="female" {{session.otherperson_sex_female}}>
+                  Female
+                </label>
+
+                <label class="block-label" for="otherperson_sex_dontknow">
+                  <input id="otherperson_sex_dontknow" type="radio" name="otherperson_sex_selects" value="dontknow" {{session.otherperson_sex_dontknow}}>
+                  Dont know
+                </label>
+              </fieldset>
+            </div>
+
+            <div class="form-group" id="ninoDetails-form">
+              <fieldset class="inline">
+                <legend class="form-label-bold" for="ninoDetails-form">
+                  Do you know their National Insurance number
+                </legend>
+
+                <label class="block-label" for="nino_select_yes" data-target="nino_details_hidden">
+                  <input id="nino_select_yes" type="radio" name="nino_select" value="Yes" aria-controls="nino-details" {{session.nino_select_yes}}>
+                  Yes
+                </label>
+
+                <label class="block-label" for="nino_select_no">
+                  <input id="nino_select_no" type="radio" name="nino_select" value="No" {{session.nino_select_no}}>
+                  No
+                </label>
+              </fieldset>
+
+              <fieldset>
+                <div class="panel panel-border-narrow js-hidden {{validate.nino}}" id="nino_details_hidden" style="display:{{session.nino_select_hidden}};">
+                  <div id="nino-form" class="form-group">
+                    <label class="form-label-bold" for="nino">Please enter their National Insurance number</label>
+                    <input type="text" class="form-control" id="nino" name="nino" value="{{session.nino}}">
+                  </div>
+                </div>
+              </fieldset>
+
+            </div>
+
+            <legend class="form-label-bold" for="dob_approximate_age">
+              Do you know their date of birth?
+            </legend>
+
+            <div class="form-group" id="dob_approximate_age">
+              <fieldset class="inline">
+                <label class="block-label" data-target="dob_hidden" for="dob_yes">
+                  <input id="dob_yes" type="radio" name="dob_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+                  Yes
+                </label>
+
+                <label class="block-label {{session.dob_no}}" data-target="approximate_age_hidden" for="dob_no">
+                  <input id="dob_no" type="radio" name="dob_select" value="No" aria-expanded="false" {{session.dob_no}}>
+                  No
+                </label>
+
+                <div class="panel panel-border-narrow js-hidden {{validate.dob}}" id="dob_hidden" style="display:{{session.dob_hidden}}">
+
+                  <fieldset>
+                    <div class="form-date">
+                      <p class="form-hint">For example, 31 03 1980</p>
+
+                      <div class="form-group form-group-day">
+                        <label for="dob_day">Day</label>
+                        <input class="form-control no-error" id="dob_day" name="dob_day" value="{{session.dob_day}}" type="text" maxlength="2">
+                      </div>
+
+                      <div class="form-group form-group-month">
+                        <label for="dob_month">Month</label>
+                        <input class="form-control no-error" id="dob_month" name="dob_month" value="{{session.dob_month}}" type="text" maxlength="2">
+                      </div>
+
+                      <div class="form-group form-group-year">
+                        <label for="dob-year">Year</label>
+                        <input class="form-control no-error" id="dob_year" name="dob_year" value="{{session.dob_year}}" type="text" maxlength="4">
+                      </div>
+                    </div>
+                  </fieldset>
+
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden {{validate.age}}" id="approximate_age_hidden" aria-hidden="true" style="display:{{session.approximate_age_hidden}}">
+                  <label class="form-label-bold" for="age">Approximate age</label>
+                  <input class="form-control" name="age" type="text" id="age" value="{{session.age}}">
+                </div>
+              </fieldset>
+
+              <fieldset>
+
+                <div id="firstName-form" class="form-group">
+                  <label class="form-label-bold" for="how_many_hours">
+                    What is their role in the fraud?
+                  </label>
+                  <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+                </div>
+
+              </fieldset>
+
+              <fieldset>
+
+                <legend class="form-label-bold" for="other_name_form">
+                  Address
+
+                  <p class="form-hint">
+                    Include at least street and town
+                  </p>
+                </legend>
+
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Building name or number</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                    <label class="form-label" for="street">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                    <label class="form-label" for="town">Town or city</label>
+                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="county">County</label>
+                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  </div>
+                </fieldset>
+
+              </fieldset>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <div class="form-group">
+        <input type="submit" value="Continue" class="button">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

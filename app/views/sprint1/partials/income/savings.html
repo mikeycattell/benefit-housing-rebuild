@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="savings_select" data-target="savings_hidden">
+      <input id="savings_select" name="savings_select" type="checkbox" value="checked" {{session.savings_select}}>
+      Savings
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="savings_hidden" style="display:{{session.savings_hidden}};">
+      <label class="form-label" for="savings">
+        Name of the bank or building society held?
+      </label>
+      <input class="form-control" type="text" id="savings" name="savings" value="{{session.savings}}">
+    </div>
+  </div>
+</fieldset>

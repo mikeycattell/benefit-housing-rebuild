@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Review and send your report</h1>
+
+  <p>Before you send your report, review what you have entered:</p>
+
+  <div class="panel panel-border-narrow">
+    <p>You're saying that <span class="bold-medium">{{review.name}}</span>.</p>
+
+    <ul class="list-bullet">
+      {% for title in review.titles %}
+        <li>{{title.title}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if additional %}
+    <h2 class="heading-small">Additional Information</h2>
+    <p>{{additional.additional}}</p>
+  {% endif %}
+
+  <form action="review" method="post">
+    <input type="submit" class="button" value="Send report" />
+  </form>
+{% endblock %}

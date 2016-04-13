@@ -1,0 +1,74 @@
+<div class="form-group">
+  <label class="form-label" for="type-of-work">
+    Type of work
+  </label>
+  <input class="form-control" id="type-of-work" type="text" name="type-of-work">
+</div>
+
+<div class="form-group">
+  <label class="form-label" for="business-name">
+    Business or employer name
+  </label>
+  <input class="form-control" id="business-name" type="text" name="business-name">
+</div>
+
+<div class="form-group">
+  <label class="form-label" for="business-address">
+    Address or location of business or employer
+  </label>
+  <textarea class="form-control" id="business-address" name="business-address" rows="4"></textarea>
+</div>
+
+<div class="form-group">
+  <label class="form-label" for="how-long">
+    How long have they been doing this?
+  </label>
+  <input class="form-control" id="how-long" type="text" name="how-long">
+</div>
+
+<div class="form-group">
+  <label class="form-label" for="what-time">
+    What time do they leave for work?
+  </label>
+  <input class="form-control" id="what-time" type="text" name="what-time">
+</div>
+
+<div class="form-group">
+  <label class="form-label" for="how-many-hours">
+    How many hours do you think they work per week?
+  </label>
+  <input class="form-control" id="how-many-hours" type="text" name="how-many-hours">
+</div>
+
+<h2 class="heading-small">What do you think their work status is?</h2>
+
+<p class="text">Select which apply</p>
+
+<div class="form-group">
+  <fieldset>
+    <label class="block-label" for="working-for-somebody">
+      <input id="working-for-somebody" name="employment-type" type="checkbox" value="working-for-somebody">
+      Working for somebody
+    </label>
+
+    <label class="block-label" for="working-for-themselves">
+      <input id="working-for-themselves" name="employment-type" type="checkbox" value="working-for-themselves">
+      Working for themselves
+    </label>
+
+    <label class="block-label" for="cash-in-hand">
+      <input id="cash-in-hand" name="employment-type" type="checkbox" value="cash-in-hand">
+      Cash in hand
+    </label>
+
+    <label class="block-label" for="other" data-target="other-hidden">
+       <input id="other" name="employment-type" type="checkbox" value="other">
+       Other
+     </label>
+
+     <div class="panel panel-border-narrow js-hidden" id="other-hidden">
+       <label class="form-label" for="nationalities-other-country">Please specify</label>
+       <input class="form-control" type="text" id="nationalities-other-country" name="nationalities-other-country">
+     </div>
+  </fieldset>
+</div>

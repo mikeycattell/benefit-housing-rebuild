@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="confirmation-message">
+        <h1 class="heading-xlarge">✓ Thank you.</h1>
+        <p class="heading-large">Your report has been sent.</p>
+      </div>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>The Department for Work and Pensions will check their benefits records and may contact the person you've reported.</p>
+      <p>Investigations can take many months and we can't tell you the outcome. You don't need to do anything else.</p>
+
+      <a href="/sprint1/feedback">What did you think of this service? (takes 30 seconds)</a>
+    </div>
+  </div>
+{% endblock %}

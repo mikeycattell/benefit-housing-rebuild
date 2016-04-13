@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">What information do you have about the person?</h1>
+
+      <form method="post" class="testingstuff">
+        <fieldset>
+          <legend class="visuallyhidden" for="form-group-details">
+            Select as many as you can
+          </legend>
+
+          <p class="bold-medium">Select as many as you can</p>
+
+          <div class="form-group">
+
+            {% for check in options %}
+              <label class="block-label" for="{{check.id}}">
+                <input id="{{check.id}}" type="radio" name="button" value="{{check.value}}" {{check.checked}} />
+                <span>{{check.title}}</span><br>
+              </label>
+            {% endfor %}
+
+  <!--          <label class="block-label" for="option1">
+              <input id="option1" type="radio" name="button" value="council" checked>Council Property
+            </label>
+            <label class="block-label" for="option2">
+            <input id="option2" type="radio" name="button" value="private">Private property
+            </label>
+            <label class="block-label" for="option3">
+            <input id="option3" type="radio" name="button" value="contrived">Contrived tenancy
+            </label>
+            <label class="block-label" for="option4">
+              <input id="option4" type="radio" name="button" value="residence" checked>Non-residence
+            </label>
+            <label class="block-label" for="option5">
+            <input id="option5" type="radio" name="button" value="dependants">Undeclared non-dependants
+            </label>
+            <label class="block-label" for="option6">
+            <input id="option6" type="radio" name="button" value="landlord">Landlord fraud
+          </label> -->
+
+
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" value="Continue" class="button">
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

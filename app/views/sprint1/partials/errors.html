@@ -1,0 +1,25 @@
+<div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+  <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+    {{errors.message}}
+  </h1>
+
+  <p>
+    {% if errors.array %}
+      <ul class="list list-bullet">
+        {% for error in errors.desc %}
+          <li>{{error.desc}}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{errors.desc}}
+    {% endif %}
+  </p>
+
+  {% if errors.linkref %}
+    <ul class="error-summary-list">
+      {% for linkref in errors.linkref %}
+        <li><a href="#">{{linkref}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

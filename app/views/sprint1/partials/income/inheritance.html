@@ -1,0 +1,28 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="inheritance_select" data-target="inheritance_hidden">
+      <input id="inheritance_select" name="inheritance_select" type="checkbox" value="checked" {{session.inheritance_select}}>
+      Inheritance
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="inheritance_hidden" style="display:{{session.inheritance_hidden}};">
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="what_inheritance">
+            What did they inherit?
+          </label>
+          <input class="form-control" type="text" id="what_inheritance" name="what_inheritance" value="{{session.what_inheritance}}">
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="who_inheritance">
+            Who did they inherit this from?
+          </label>
+          <input class="form-control" type="text" id="who_inheritance" name="who_inheritance" value="{{session.who_inheritance}}">
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</fieldset>

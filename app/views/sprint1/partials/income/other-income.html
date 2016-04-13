@@ -1,0 +1,28 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="other_income_select" data-target="other_income_hidden">
+      <input id="other_income_select" name="other_income_select" type="checkbox" value="checked" {{session.other_income_select}}>
+      Other income or earnings
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="other_income_hidden" style="display:{{session.other_income_hidden}};">
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="other_income_where">
+            Where does the other income or earnings come from?
+          </label>
+          <input class="form-control" type="text" id="other_income_where" name="other_income_where" value="{{session.other_income_where}}">
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="other_income_how_often">
+            How often do they get this?
+          </label>
+          <input class="form-control" type="text" id="other_income_how_often" name="other_income_how_often" value="{{session.other_income_how_often}}">
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</fieldset>

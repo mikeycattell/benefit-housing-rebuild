@@ -1,0 +1,63 @@
+// Import GOV.UK elements, this will import the frontend toolkit and some base styles.
+// Take a look in _govuk-elements.scss to see which files are imported.
+@import 'govuk-elements';
+
+// Take a look at patterns.scss to see which files are imported.
+@import 'patterns';
+
+// If you need to create a page as part of your journey, but without GOV.UK branding
+// See localhost:3000/examples/unbranded/
+.unbranded {
+  background: $white;
+  // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
+  * {
+    font-family: Arial !important;
+  }
+  // Remove GOV.UK footer styles
+  #footer {
+    border: 0;
+    background: $white;
+  }
+}
+
+// Related links
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.related-links {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.indent-info-blue {
+  border-color: #0268AE;
+  background-color: #EDF4F7;
+  background-image: url(../images/icons/icon-information.png);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.confirmation-message {
+  background-color: #28a197;
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+#age {
+  max-width: 80px;
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you

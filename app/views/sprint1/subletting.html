@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Council Property</h1>
+
+      <form method="post" action="abroad">
+        <h2 class="heading-small">Is the suspect sub-letting the property?</h2>
+
+        <fieldset class="inline">
+          <div class="form-group">
+
+            <label class="block-label" data-target="who_hidden" for="who_yes">
+              <input id="who_yes" type="radio" name="lodgers_select" value="Yes" aria-controls="who_hidden" aria-expanded="false" {{session.lodger_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" for="who_no">
+              <input id="who_no" type="radio" name="lodgers_select" value="No" {{session.lodger_no}}>
+              No
+            </label>
+
+            <label class="block-label" for="who_dontknow">
+              <input id="who_dont_know" type="radio" name="lodgers_select" value="dont_know" {{session.lodger_dontknow}}>
+              I dont know
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="who_hidden" style="display:{{session.who_hidden_display}};">
+              <h2 class="heading-small">Who are they subletting to?</h2>
+                <div class="form-group">
+                  <fieldset class="{{validate.first_name}}">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">First name</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="{{validate.last_name}}">
+                  <div id="LastName-form" class="form-group">
+                    <label class="form-label-bold" for="last_name">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                  </div>
+                </fieldset>
+              </div>
+
+          </div>
+
+          </div>
+        </fieldset>
+
+        <a id="submit" type="submit" class="button" value="Continue" href="anotherperson">Continue</a>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

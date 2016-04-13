@@ -1,0 +1,28 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="compensation_select" data-target="compensation_hidden" style="display:{{session.compensation_hidden}};">
+      <input id="compensation_select" name="compensation_select" type="checkbox" value="checked" {{session.compensation_select}}>
+      Compensation
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="compensation_hidden" style="display:{{session.compensation_hidden}};">
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="compensation_who">
+            Who did they receive compensation from?
+          </label>
+          <input class="form-control" type="text" id="compensation_who" name="compensation_who" value="{{session.compensation_who}}">
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="compensation_what_for">
+            What did they receive compensation for?
+          </label>
+          <input class="form-control" type="text" id="compensation_what_for" name="compensation_what_for" value="{{session.compensation_what_for}}">
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</fieldset>

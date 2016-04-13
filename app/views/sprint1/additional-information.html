@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Additional information</h1>
+
+      <form method="post" action="additional-information">
+        <div class="form-group">
+          <label class="form-label-bold" for="additional">Any other information about what you think the person is doing?</label>
+          <textarea class="form-control form-control-3-4" rows="5" id="additional" name="additional"></textarea>
+        </div>
+
+        <input id="submit" type="submit" class="button" value="Continue">
+      </form>
+    </div>
+  </div>
+{% endblock %}

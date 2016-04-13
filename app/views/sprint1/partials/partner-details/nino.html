@@ -1,0 +1,26 @@
+<div class="form-group form-group" id="ninoDetails-form">
+  <fieldset class="inline">
+    <legend class="form-label-bold" for="ninoDetails-form">
+      Do you know their National Insurance number
+    </legend>
+
+    <label class="block-label" for="nino_select_yes" data-target="nino_details_hidden">
+      <input id="nino_select_yes" type="radio" name="nino_select" value="Yes" aria-controls="nino-details" {{session.nino_select_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label" for="nino_select_no">
+      <input id="nino_select_no" type="radio" name="nino_select" value="No" {{session.nino_select_no}}>
+      No
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <div class="panel panel-border-narrow js-hidden {{validate.nino}}" id="nino_details_hidden" style="display:{{session.nino_select_hidden}};">
+      <div id="nino-form" class="form-group">
+        <label class="form-label-bold" for="nino">Please enter their National Insurance number</label>
+        <input type="text" class="form-control" id="nino" name="nino" value="{{session.nino}}">
+      </div>
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Report suspected housing benefits fraud</h1>
+      <p class="lede">Use this service to anonymously report someone you think is claiming benefits that they aren't entitled to.</p>
+      <h2 class="heading-medium">Before you start</h2>
+      <p>You’ll need to know at least the following about the person you want to report:</p>
+
+      <ul class="list-bullet">
+        <li>name</li>
+        <li>address</li>
+        <li>approximate age</li>
+      </ul>
+
+      <br />
+      <div class="display-block-js">
+        <a class="button button-get-started" href="details">Start now</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

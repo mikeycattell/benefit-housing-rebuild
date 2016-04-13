@@ -1,0 +1,63 @@
+<div class="form-group form-group" id="addressDetails-form">
+  <fieldset>
+    <div class="form-group form-group-compound">
+      <legend class="form-label-bold" for="addressDetails-form">
+        Does this person regularly live at another address?
+      </legend>
+
+      <label class="block-label" for="address_details_yes_and_know" data-target="address_details_hidden">
+        <input id="address_details_yes_and_know" type="radio" name="address_details" value="yes_and_know" aria-controls="address-details" {{session.yes_and_know}}>
+        Yes and I know the address
+      </label>
+
+      <label class="block-label" for="address_details_yes_and_dont_know">
+        <input id="address_details_yes_and_dont_know" type="radio" name="address_details" value="yes_and_dont_know" {{session.yes_and_dont_know}}>
+        Yes but I don't know the address
+      </label>
+
+      <label class="block-label" for="address_details_no">
+        <input id="address_details_no" type="radio" name="address_details" value="no" {{session.no}}>
+        No
+      </label>
+
+      <label class="block-label" for="address_details_unknown">
+        <input id="address_details_unknown" type="radio" name="address_details" value="unknown" {{session.unknown}}>
+        I don't know
+      </label>
+    </div>
+  </fieldset>
+
+  <div class="panel panel-border-narrow js-hidden " id="address_details_hidden" style="display:{{session.address_details_hidden}};">
+    <div class="form-group ">
+      <fieldset id="address-form">
+        <legend class="form-label-bold" for="address-form">Address</legend>
+        <p class="form-hint">Include at least street and town</p>
+
+        <div id="buildingNumber-form" class="form-group form-group-compound">
+          <label class="form-label" for="building">Building name or number</label>
+          <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
+        </div>
+
+        <div id="street-form" class="form-group form-group-compound {{validate.street}}">
+          <label class="form-label" for="street">Street</label>
+          <input type="text" class="form-control no-error " id="street" name="street" value="{{session.street}}">
+        </div>
+
+        <div id="town-form" class="form-group form-group-compound {{validate.town}}">
+          <label class="form-label" for="town">Town or city</label>
+          <input type="text" class="form-control no-error " id="town" name="town" value="{{session.town}}">
+        </div>
+
+        <div id="county-form" class="form-group form-group-compound">
+          <label class="form-label" for="county">County</label>
+          <input type="text" class="form-control no-error" id="county" name="county" value="{{session.county}}">
+        </div>
+
+        <div id="postcode-form" class="form-group form-group-end  ">
+          <label class="form-label" for="postcode">Postcode</label>
+          <input type="text" class="form-control no-error  form-control-1-4" id="postcode" name="postcode" value="{{session.postcode}}">
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="sale_of_something_select" data-target="sale_of_something_hidden">
+      <input id="sale_of_something_select" name="sale_of_something_select" type="checkbox" value="checked" {{session.sale_of_something_select}}>
+      Sale of something
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="sale_of_something_hidden" style="display:{{session.sale_of_something_hidden}};">
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="what_sold">
+            What did they sell? If property, include address
+          </label>
+          <textarea class="form-control form-control-3-4" rows="5" id="what_sold" name="what_sold">{{session.what_sold}}</textarea>
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <label class="form-label" for="when_sold">
+            Who did they sell it to?
+          </label>
+          <input class="form-control" type="text" id="when_sold" name="when_sold" value="{{session.when_sold}}">
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</fieldset>

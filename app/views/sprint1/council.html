@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Council Property</h1>
+
+      <form method="post" class="council">
+        <h2 class="heading-small">Does the suspect have an alternative address?</h2>
+        <fieldset class="inline">
+          <div class="form-group">
+            <label class="block-label" data-target="address_hidden" for="address_yes">
+              <input id="address_yes" type="radio" name="address_select" value="Yes" aria-controls="address_hidden" aria-expanded="false" {{session.address_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" for="address_no">
+              <input id="address_no" type="radio" name="address_select" value="No" {{session.address_no}}>
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="address_hidden" style="display:{{session.address_hidden_display}};">
+              <legend class="form-label-bold" for="other_name_form">
+                Address
+
+                <p class="form-hint">
+                  Include at least street and town
+                </p>
+              </legend>
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Building name or number</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                    <label class="form-label" for="street">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                    <label class="form-label" for="town">Town or city</label>
+                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="county">County</label>
+                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="inline">
+          <div class="form-group">
+
+            <h2 class="heading-small">Does the suspect have any lodgers?</h2>
+
+            <label class="block-label" data-target="who_hidden" for="who_yes">
+              <input id="who_yes" type="radio" name="lodgers_select" value="Yes" aria-controls="who_hidden" aria-expanded="false" {{session.lodger_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" for="who_no">
+              <input id="who_no" type="radio" name="lodgers_select" value="No" {{session.lodger_no}}>
+              No
+            </label>
+
+            <label class="block-label" for="who_dontknow">
+              <input id="who_dont_know" type="radio" name="lodgers_select" value="dont_know" {{session.lodger_dontknow}}>
+              I dont know
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="who_hidden" style="display:{{session.who_hidden_display}};">
+              <div class="repeatable">
+                <div class="form-group">
+                  <fieldset class="{{validate.first_name}}">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">First name</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="{{validate.last_name}}">
+                  <div id="LastName-form" class="form-group">
+                    <label class="form-label-bold" for="last_name">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.first_name}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <input type="submit"  class="repeat button" value="Add Another"></button>
+          </div>
+
+          </div>
+        </fieldset>
+
+        <a id="submit" type="submit" class="button" value="Continue" href="subletting">Continue</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

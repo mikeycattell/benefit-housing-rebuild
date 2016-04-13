@@ -1,0 +1,24 @@
+<div class="form-group form-group" id="emailDetails-form">
+  <fieldset class="inline">
+    <legend class="form-label-bold" for="emailDetails-form">
+      Do you know their email?
+    </legend>
+
+    <label class="block-label" for="email_select_yes" data-target="email_hidden">
+      <input id="email_select_yes" type="radio" name="email_select" value="Yes" {{session.email_select_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label" for="email_select_no">
+      <input id="email_select_no" type="radio" name="email_select" value="No" {{session.email_select_no}}>
+      No
+    </label>
+  </fieldset>
+
+  <div class="panel panel-border-narrow js-hidden {{validate.email}}" id="email_hidden" style="display:{{session.email_hidden}};">
+    <div id="email-form" class="form-group  panel-indent ">
+      <label class="form-label-bold" for="email">Please enter their email address</label>
+      <input type="text" class="form-control" id="email" name="email" value="{{session.email}}">
+    </div>
+  </div>
+</div>

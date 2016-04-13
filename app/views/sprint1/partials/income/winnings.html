@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="form-group-compound">
+    <label class="block-label" for="winnings_select" data-target="winnings_hidden">
+      <input id="winnings_select" name="winnings_select" type="checkbox" value="checked" {{session.winnings_select}}>
+      Winnings
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden" id="winnings_hidden" style="display:{{session.winnings_hidden}};">
+      <label class="form-label" for="winnings">
+        What did they win?
+      </label>
+      <input class="form-control" type="text" id="winnings" name="winnings" value="{{session.winnings}}">
+    </div>
+  </div>
+</fieldset>
