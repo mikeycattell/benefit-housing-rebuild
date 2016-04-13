@@ -20,9 +20,11 @@
 
           <div class="form-group">
 
+
+
             {% for check in options %}
               <label class="block-label" for="{{check.id}}">
-                <input id="{{check.id}}" type="radio" name="button" value="{{check.value}}" {{check.checked}} />
+                <input id="{{check.id}}" type="radio"  name="button" value="{{check.value}}" {{check.checked}} />
                 <span>{{check.title}}</span><br>
               </label>
             {% endfor %}

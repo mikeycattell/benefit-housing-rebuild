@@ -334,7 +334,7 @@ router.post('/partner-employment', function(req, res) {
   router.get('/review', function(req, res) {
     var details = req.cookies.details_more;
     var fraud_types = req.cookies.fraud_urls;
-    var review = {'name': details.first_name + ' ' + details.last_name, titles: req.cookies.fraud_titles};
+    var review = {'name': details.first_name + ' ' + details.last_name, titles: req.cookies.details_get_options_titles};
     var additional = req.cookies.additional;
 
     res.render('sprint1/review', {review: review, additional: additional});

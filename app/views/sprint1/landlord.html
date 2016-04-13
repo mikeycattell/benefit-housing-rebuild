@@ -7,15 +7,28 @@
 {% block main %}
   <div class="grid-row">
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">Contrived tenancy</h1>
+      <h1 class="heading-xlarge">Landlord fraud journey</h1>
 
       <form method="post" class="council">
-        <h2 class="heading-small">Please complete this section if the suspect does not live at the address for which rent is being claimed or if the landlord fails to notify that the tenant has left.</h2>
-        <h2 class="heading-small">Is the suspect using an alternative address from that already given</h2>
 
+        <div class="form-group">
+          <fieldset class="{{validate.first_name}}">
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="first_name">First name</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+            </div>
+          </fieldset>
+
+          <fieldset class="{{validate.last_name}}">
+            <div id="lastName-form" class="form-group   ">
+              <label class="form-label-bold" for="last_name">Last name</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.last_name}}">
+            </div>
+          </fieldset>
+        </div>
 
         <!-- start of address-->
-        <h2 class="heading-small">Do you know the relative or partner's address?</h2>
+        <h2 class="heading-small">Do you know the address used by the landlord?</h2>
         <div class="form-group">
           <fieldset class="inline">
             <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
@@ -70,75 +83,10 @@
           <fieldset/>
         </div>
 
-        <div class="form-group">
-          <fieldset>
-            <div class="form-date">
-              <legend class="form-label-bold" for="addressperson_hidden_form">
-                When did the suspect leave this address?
-
-                <p class="form-hint">
-                  If you dont know the exact date, please give the best estimation you can
-                </p>
-              </legend>
-
-              <div class="form-group form-group-day">
-                <label for="dob_day">Day</label>
-                <input class="form-control no-error" id="dob_day" name="dob_day" value="{{session.dob_day}}" type="text" maxlength="2">
-              </div>
-
-              <div class="form-group form-group-month">
-                <label for="dob_month">Month</label>
-                <input class="form-control no-error" id="dob_month" name="dob_month" value="{{session.dob_month}}" type="text" maxlength="2">
-              </div>
-
-              <div class="form-group form-group-year">
-                <label for="dob-year">Year</label>
-                <input class="form-control no-error" id="dob_year" name="dob_year" value="{{session.dob_year}}" type="text" maxlength="4">
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-        <h2 class="heading-small">Does the suspect continue to visit the house for any reason?</h2>
-        <div class="form-group">
-          <fieldset class="{{validate.first_name}}">
-            <label class="block-label" data-target="othernames" for="othernames_yes">
-              <input id="othernames_yes" type="radio" name="othernames_selects" value="Yes" aria-controls="othernames" aria-expanded="false" {{session.another_yes}}>
-              Yes
-            </label>
-
-            <label class="block-label" for="another_no">
-              <input id="othernames_no" type="radio" name="othernames_selects" value="No" {{session.othernames_no}}>
-              No
-            </label>
-
-            <label class="block-label" for="another_dontknow">
-              <input id="othernames_dontknow" type="radio" name="othernames_selects" value="dontknow" {{session.othernames_dontknow}}>
-              Dont know
-            </label>
-          </fieldset>
-        </div>
-
-            <div class="panel panel-border-narrow js-hidden" id="othernames" style="display:{{session.othernames_display}};">
-              <div class="form-group">
-                <fieldset>
-
-                  <div id="firstName-form" class="form-group">
-                    <label class="form-label-bold" for="how_many_hours">
-                      When and why?
-                    </label>
-                    <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
-                  </div>
-
-                </fieldset>
-              </div>
-
-            </div>
-          </div>
 
         <!-- end of address -->
 
-        <a id="submit" type="submit" class="button" value="Continue" href="additional-information">Continue</a>
+        <a id="submit" type="submit" class="button" value="Continue" href="details-property">Continue</a>
       </form>
     </div>
   </div>

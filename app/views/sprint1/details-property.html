@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint1/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Landlord fraud journey</h1>
+
+      <form method="post" class="council">
+        <h2 class="heading-small">Details for the property</h2>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                What type of property is it?
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                How many bedrooms are there in the property?
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                How many other rooms are there?
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="how_many_hours">
+                Who collects the rent?
+                <p class="form-hint">(Please give name(s), when and how they collect rent)</p>
+              </label>
+              <input type="text" class="form-control" id="how_many_hours" name="how_many_hours" value="{{session.how_many_hours}}">
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- start of address-->
+        <h2 class="heading-small">Do you know the address used by the landlord?</h2>
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
+              <input id="dob_yes" type="radio" name="addressperson_hidden_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.addressperson_hidden_no}}" for="dob_no">
+              <input id="dob_no" type="radio" name="addressperson_hidden_select" value="No" {{session.dob_no}}>
+              No
+            </label>
+
+            <label class="block-label {{session.addressperson_hidden_no}}" for="dob_no">
+              <input id="dob_no" type="radio" name="addressperson_hidden_select" value="No" {{session.dob_no}}>
+              Dont know
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.addressperson_hidden}}" id="addressperson_hidden" style="display:{{session.addressperson_hidden}}">
+
+              <legend class="form-label-bold" for="addressperson_hidden_form">
+                Address
+
+                <p class="form-hint">
+                  Include at least street and town
+                </p>
+              </legend>
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Building name or number</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                    <label class="form-label" for="street">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                    <label class="form-label" for="town">Town or city</label>
+                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="county">County</label>
+                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          <fieldset/>
+        </div>
+
+
+        <!-- end of address -->
+
+        <!-- start of collaborating with landlord-->
+        <h2 class="heading-small">Is anyone collaborating with the landlord?</h2>
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="block-label" data-target="collaborating_hidden" for="collaborating_hidden_yes">
+              <input id="collaborating_yes" type="radio" name="collaborating_hidden_select" value="Yes" aria-controls="collaborating_hidden" aria-expanded="false" {{session.collaborating_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.collaborating_hidden_no}}" for="collaborating_no">
+              <input id="collaborating_no" type="radio" name="collaborating_hidden_select" value="No" {{session.collaborating_no}}>
+              No
+            </label>
+
+            <label class="block-label {{session.collaborating_hidden_no}}" for="collaborating_no">
+              <input id="collaborating_no" type="radio" name="collaborating_hidden_select" value="No" {{session.collaborating_no}}>
+              Dont know
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.collaborating_hidden}}" id="collaborating_hidden" style="display:{{session.collaborating_hidden}}">
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">First name</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Last name</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          <fieldset/>
+        </div>
+
+        <!-- end of collaborating with landlord -->
+
+        <!-- start of landlord use business name-->
+        <h2 class="heading-small">Does the landlord use a business name?</h2>
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="block-label" data-target="landlord_businessname_hidden" for="landlord_businessname_hidden_yes">
+              <input id="dob_yes" type="radio" name="landlord_businessname_hidden_select" value="Yes" aria-controls="landlord_businessname_hidden_hidden" aria-expanded="false" {{session.landlord_businessname_hidden_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.landlord_businessname_hidden_no}}" for="landlord_businessname_hidden_no">
+              <input id="landlord_businessname_hidden_no" type="radio" name="landlord_businessname_hidden_select" value="No" {{session.landlord_businessname_hidden_no}}>
+              No
+            </label>
+
+            <label class="block-label {{session.landlord_businessname_hidden_dontknow}}" for="landlord_businessname_hidden_dontknow">
+              <input id="landlord_businessname_hidden_dontknow" type="radio" name="landlord_businessname_hidden_select" value="No" {{session.landlord_businessname_hidden_dontknow}}>
+              Dont know
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.landlord_businessname_hidden}}" id="landlord_businessname_hidden" style="display:{{session.landlord_businessname_hidden}}">
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Business name</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+                </fieldset>
+              </div>
+
+            </div>
+          <fieldset/>
+        </div>
+
+
+        <!-- end of landlord use business name -->
+
+        <a id="submit" type="submit" class="button" value="Continue" href="details-property">Continue</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

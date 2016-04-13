@@ -5,43 +5,40 @@ var sessions = {
 
 
     // council
-    if ( req.path === '/subletting' ) {
-      res.cookie('subletting', req.body);
-    }
 
     if ( req.path === '/details' ) {
-      var fraud_urls = {};
-      var fraud_titles = [];
+      var details_get_options = {};
+      var details_get_options_titles = [];
 
       for ( var selection in req.body ) {
-        fraud_urls[selection] = req.body[selection];
+        details_get_options[selection] = req.body[selection];
         if ( selection === 'council' ) {
-          details_get_options.push({'title':'is claiming council'});
+          details_get_options_titles.push({'title':'is claiming council'});
         }
 
         if ( selection === 'private' ) {
-          details_get_options.push({'title':'is claiming private'});
+          details_get_options_titles.push({'title':'is claiming private'});
         }
 
         if ( selection === 'contrived' ) {
-          details_get_options.push({'title':'is claiming contrived'});
+          details_get_options_titles.push({'title':'is claiming contrived'});
         }
 
         if ( selection === 'residence' ) {
-          details_get_options.push({'title':'is claiming residence'});
+          details_get_options_titles.push({'title':'is claiming residence'});
         }
 
         if ( selection === 'dependants' ) {
-          fraud_titles.push({'title':'is claiming dependants'});
+          details_get_options_titles.push({'title':'is claiming dependants'});
         }
 
         if ( selection === 'landlord' ) {
-          fraud_titles.push({'title':"is claiming landlord"});
+          details_get_options_titles.push({'title':"is claiming landlord"});
         }
 
       }
-      res.cookie('fraud_urls', fraud_urls);
-      res.cookie('fraud_titles', fraud_titles);
+      res.cookie('details_get_options', details_get_options);
+      res.cookie('details_get_options_titles', details_get_options_titles);
     }
 
     // Details More
@@ -70,48 +67,7 @@ var sessions = {
       res.cookie('details_more', req.body);
     }
 
-    // Fraud Type
-    if ( req.path === '/fraud-type' ) {
-      var fraud_urls = {};
-      var fraud_titles = [];
 
-      for ( var selection in req.body ) {
-        fraud_urls[selection] = req.body[selection];
-        if ( selection === 'employment' ) {
-          fraud_titles.push({'title':'is working and claiming benefit'});
-        }
-
-        if ( selection === 'partner' ) {
-          fraud_titles.push({'title':'is living with a partner while claiming to be living alone'});
-        }
-
-        if ( selection === 'disability' ) {
-          fraud_titles.push({'title':'is dishonestly claiming disability benefit'});
-        }
-
-        if ( selection === 'carers' ) {
-          fraud_titles.push({'title':'is dishonestly claiming carers benefit'});
-        }
-
-        if ( selection === 'abroad' ) {
-          fraud_titles.push({'title':'is claiming benefits but not living in the UK'});
-        }
-
-        if ( selection === 'identity' ) {
-          fraud_titles.push({'title':"is using someone else's identity"});
-        }
-
-        if ( selection === 'income' ) {
-          fraud_titles.push({'title':'is not declaring savings or other income'});
-        }
-
-        if ( selection === 'other' ) {
-          fraud_titles.push({'title':'is committing some type of fraud'});
-        }
-      }
-      res.cookie('fraud_urls', fraud_urls);
-      res.cookie('fraud_titles', fraud_titles);
-    }
 
     // Employment Details
     if ( req.path === '/employment-details' ) {
