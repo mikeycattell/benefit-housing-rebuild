@@ -7,15 +7,13 @@
 {% block main %}
   <div class="grid-row">
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">Contrived tenancy</h1>
+      <h1 class="heading-xlarge">Non Residence</h1>
 
       <form method="post" class="council">
         <h2 class="heading-small">Please complete this section if the suspect does not live at the address for which rent is being claimed or if the landlord fails to notify that the tenant has left.</h2>
-        <h2 class="heading-small">Is the suspect using an alternative address from that already given</h2>
-
 
         <!-- start of address-->
-        <h2 class="heading-small">Do you know the relative or partner's address?</h2>
+        <h2 class="heading-small">Is the suspect using an alternative address from that already given</h2>
         <div class="form-group">
           <fieldset class="inline">
             <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
@@ -134,11 +132,14 @@
               </div>
 
             </div>
+
+            <a id="submit" type="submit" class="button" value="Continue" href="additional-information">Continue</a>
           </div>
 
         <!-- end of address -->
 
-        <a id="submit" type="submit" class="button" value="Continue" href="additional-information">Continue</a>
+
+
       </form>
     </div>
   </div>
